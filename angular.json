@@ -11,8 +11,10 @@
       "prefix": "app",
       "architect": {
         "build": {
+          
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "baseHref": "https://vulax.github.io/mirish",
             "outputPath": "docs",
             "index": "src/index.html",
             "main": "src/main.ts",
