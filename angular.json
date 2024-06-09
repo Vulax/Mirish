@@ -14,7 +14,7 @@
           
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "baseHref": "https://vulax.github.io/mirish/",
+            "baseHref": "https://vulax.github.io/Mirish/",
             "outputPath": "docs",
             "index": "src/index.html",
             "main": "src/main.ts",
