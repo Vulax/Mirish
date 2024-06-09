@@ -1,0 +1,47 @@
+.product {
+    border: 1px solid #ccc;
+    padding:15px;
+    height: 950px;
+}
+.product_lp {
+    border: 1px solid #ccc;
+    padding:15px;
+    height: 470px;
+}
+.ul-item{
+    list-style-type: none; 
+    padding: 0;
+}
+.hm{
+    position: relative;
+}
+.item_cart_holder{
+    position: relative;
+}
+.discount{
+    position:absolute;
+    width:50px;
+    height:50px;
+    top:0px;
+    right:10px;
+    color:white;
+    background-color: #2e0035;
+    font-weight: bold;
+}
+::ng-deep .bs-rating-star {
+    font-size: 50px;
+    color: #2e0035;
+}
+.product-image{
+    width: 100%;
+}
+
+::ng-deep .mdc-button{
+    height:40px !important;
+    background-color: #2e0035 !important;
+    color:white !important;
+}
+
+::ng-deep .mat-mdc-chip-set .mdc-evolution-chip-set__chips {
+    margin-bottom:10px !important;
+}

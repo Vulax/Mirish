@@ -1,0 +1,46 @@
+
+
+<div >
+<img #mainimg src="../../assets/images/1.jpg" alt="Image" class="mainimg">
+   <div #header class="header" >
+    
+        <div class="header-part"> 
+            <h2>Eau De Parfum</h2>
+            <p>Eau De Parfum's are made<br> with a higher concentration of perfume oil,<br> normally between 12-18%, which gives them a stronger scent.</p>
+            <a routerLink="/Category" [queryParams]="{'category': 'Eau De Toilette'}"> <button class="shopnow draw-border">Toilette</button></a>
+        </div>
+    
+        <div class="header-part"> 
+            <h2>Eau De Toilette</h2>
+            <p>Eau De Toilette's usually have a concentration between 8-12%,<br> giving the scent a lighter feel. </p>
+            <a routerLink="/Category" [queryParams]="{'category': 'Eau De Parfum'}"> <button class="shopnow draw-border" style="margin-top:20px;">Parfum</button></a>
+        </div>
+    </div>
+</div>
+<div class="mb-15">
+    <mat-tab-group class="mb-15">
+        <mat-tab label="Hot picks">
+            
+            <carousel fxHide.lt-sm="true" [itemsPerSlide]="3" [isAnimated]="true" [showIndicators]="false"
+                [interval]="5000">
+                <slide *ngFor="let product of productService.getRecommended()">
+                    <app-item [product]="product" class="rel-pos-item"></app-item>
+                </slide>
+            </carousel>
+            <carousel fxHide.gt-xs="true" [itemsPerSlide]="2" [isAnimated]="true" [showIndicators]="false"
+                [interval]="5000">
+                <slide *ngFor="let product of productService.getRecommended()">
+                    <app-item [product]="product" class="rel-pos-item"></app-item>
+                </slide>
+            </carousel>
+            <carousel fxHide.gt-xs="true" [itemsPerSlide]="1" [isAnimated]="true" [showIndicators]="false"
+                [interval]="5000">
+                <slide *ngFor="let product of productService.getRecommended()">
+                    <app-item [product]="product" class="rel-pos-item"></app-item>
+                </slide>
+            </carousel>
+            
+        </mat-tab>
+    </mat-tab-group>
+</div>
+

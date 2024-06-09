@@ -1,0 +1,59 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav>
+        <mat-nav-list>
+            <a (click)="ProfileDialog()" style="cursor: pointer; margin-left:10px; font-size:30px; ">
+                        <p>Account</p>
+            </a>
+            <a style="color:black !important; font-size:30px;" routerLink="/Category"><p> Shop</p></a>
+            <a style="color:black !important; cursor: pointer; font-size:30px;"(click)="gotoCart()"><p>Cart</p></a>
+            <a style="color:black !important; font-size:30px;" routerLink="/"><p>Landing Page</p></a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary" fxLayoutGap="16px" class="toolbar-padding toolbar-sticky">
+            <mat-icon (click)="sidenav.toggle()" class="icon-display">menu</mat-icon>
+            <div fxFlex fxLayoutAlign="start center" class="col-4 logo_holder">
+                <h1 style="text-align: center;">Mirish</h1>
+            </div>
+            <div fxFlex fxLayoutAlign="end" fxLayoutGap="20px">
+                <div *ngIf="this.userService.currentUser === undefined">
+                    <a (click)="ProfileDialog()" class="a-account"
+                        fxLayout="column" fxLayoutAlign="center center">
+                        <mat-icon class="a-icon-display">person</mat-icon>
+                        <div class="a-font-a">Account</div>
+                    </a>
+                </div>
+                <div *ngIf="this.userService.currentUser !== undefined" fxLayout="column">
+                    <a (click)="openEditDialog()" class="a-account" fxLayout="column"
+                        fxLayoutAlign="center center">
+                        <mat-icon class="a-icon-display">person</mat-icon>
+                        <div class="a-font-a">{{ this.userService.currentUser.name }}</div>
+                    </a>
+                    <div *ngIf="isClickedProfile" class="popper-logged" fxLayout="column">
+                        <a (click)="logoff()" mat-raised-button><mat-icon>logout</mat-icon>Sign out</a>
+                        <a (click)="editProfile()" mat-raised-button><mat-icon>person</mat-icon>Edit profile</a>
+                        <a (click)="openHistory()" mat-raised-button><mat-icon>history</mat-icon>Order history</a>
+                    </div>
+                </div>
+                <div>
+                    <a (click)="gotoCart()" fxLayout="column" fxLayoutAlign="center center">
+                        <mat-icon class="a-icon-display" [matBadge]="getCartTotalItems()" aria-hidden="false" matBadgePosition="after" matBadgeSize="small" matBadgeColor="accent">shopping_cart</mat-icon>
+                        <div class="a-font-a">{{ getCartTitle() }}</div>
+                    </a>
+                </div>
+            </div>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+        <footer class="footer-margin">
+            <mat-card class="p-10-px" fxFlex fxLayout="row" fxLayoutAlign="center">
+
+                <mat-card-content>
+                    <img src="assets/images/p-3.png" alt="" title="Visa" class="pay-program" loadedimage="true">
+                </mat-card-content>
+                <mat-card-content>
+                    <img src="assets/images/p-5.jpeg" alt="" title="Master" class="pay-program" loadedimage="true">
+                </mat-card-content>
+            </mat-card>
+        </footer>
+    </mat-sidenav-content>
+</mat-sidenav-container>
